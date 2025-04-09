@@ -3,15 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <title>Plotly Visualizations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    iframe {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    .insight-block {
+      background: #ffffff;
+      border-left: 5px solid #3498db;
+      padding: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .insight-block h3 {
+      margin-top: 0;
+      color: #2980b9;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #3498db;
+    }
+  </style>
 </head>
 <body>
   <h2>📈 Interactive Plotly Charts</h2>
 
-  <iframe src="weather_vs_active.html" width="100%" height="600px"></iframe>
-  <iframe src="fitness_factors_correlation.html" width="100%" height="600px"></iframe>
-  <iframe src="macronutrients_vs_calories.html" width="100%" height="600px"></iframe>
-  <!-- Add more iframes as needed -->
+  <!-- Repeat for each chart -->
+  <iframe src="nutrient_fitness_correlation.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Correlation Between Nutrient Intake and Fitness Metrics</h3>
+    <p><strong>What it shows:</strong> Heatmap showing relationships between nutrient intake (Carbs, Protein, etc.) and fitness (Calories burned, Active minutes, etc.).</p>
+    <p><strong>Key Takeaway:</strong> Iron and Calcium show moderate correlation.</p>
+    <p><strong>What happens on interaction:</strong> Hover over each cell to see exact correlation values.</p>
+  </div>
 
-  <p><a href="index.html">⬅️ Back to Home</a></p>
+  <iframe src="protein_intake_by_workout.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Protein Intake by Workout Type</h3>
+    <p><strong>What it shows:</strong> Violin plot of protein consumption across workout types.</p>
+    <p><strong>Key Takeaway:</strong> Running and Yoga show higher protein variance.</p>
+    <p><strong>What happens on interaction:</strong> Hover to view spread, median, and individual values.</p>
+  </div>
+
+  <iframe src="mood_vs_sugar.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Mood vs Sugar Intake</h3>
+    <p><strong>What it shows:</strong> Box plot comparing sugar intake for moods like Happy, Stressed, etc.</p>
+    <p><strong>Key Takeaway:</strong> Tired mood shows widest sugar range; Happy mood is more stable.</p>
+    <p><strong>What happens on interaction:</strong> Hover shows values, quartiles, and outliers.</p>
+  </div>
+
+  <iframe src="avg_calories_burned_by_mood.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Average Calories Burned by Mood</h3>
+    <p><strong>What it shows:</strong> Bar chart showing average calorie burn grouped by user mood.</p>
+    <p><strong>Key Takeaway:</strong> Happy and Neutral users burn slightly more calories.</p>
+    <p><strong>What happens on interaction:</strong> Hover shows exact calorie values for each mood.</p>
+  </div>
+
+  <iframe src="avg_macronutrients_by_workout.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Macronutrients by Workout Type</h3>
+    <p><strong>What it shows:</strong> Grouped bar chart for Protein, Carbohydrates, and Fat across workouts.</p>
+    <p><strong>Key Takeaway:</strong> Gym workouts and Yoga lead in protein and carbs; fats stay balanced.</p>
+    <p><strong>What happens on interaction:</strong> Hover over bars to see exact values.</p>
+  </div>
+
+
+  <iframe src="parallel_coordinates_fitness_nutrition.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Parallel Coordinates: Fitness & Nutrition by Mood</h3>
+    <p><strong>What it shows:</strong> Multi-axis plot showing trends across steps, calories, mood, and nutrition.</p>
+    <p><strong>Key Takeaway:</strong> Mood-specific behavior patterns emerge based on line clustering.</p>
+    <p><strong>What happens on interaction:</strong> Hover highlights complete user profile line.</p>
+  </div>
+
+  <iframe src="avg_macronutrients_by_mood.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Macronutrient Intake by Mood</h3>
+    <p><strong>What it shows:</strong> Stacked bar chart displaying average Protein, Carbs, and Fat by mood.</p>
+    <p><strong>Key Takeaway:</strong> Carbs dominate in all moods; macro intake is otherwise balanced.</p>
+    <p><strong>What happens on interaction:</strong> Hover shows values for each stacked macro by mood.</p>
+  </div>
+
+  <iframe src="vitamins_vs_calories_burned.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Vitamin Intake vs Calories Burned</h3>
+    <p><strong>What it shows:</strong> Scatter plot relating Vitamin C to calories burned. Size = Vitamin B6.</p>
+    <p><strong>Key Takeaway:</strong> Slight positive correlation; larger bubbles suggest diverse vitamin profiles.</p>
+    <p><strong>What happens on interaction:</strong> Hover reveals vitamin and calorie details per user.</p>
+  </div>
+
+  <iframe src="avg_vitamin_intake_by_workout.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Average Vitamin Intake by Workout Type</h3>
+    <p><strong>What it shows:</strong> Stacked bar chart showing Vitamin B6, C, and E intake for different workouts.</p>
+    <p><strong>Key Takeaway:</strong> Running has the highest vitamin intake, especially C.</p>
+    <p><strong>What happens on interaction:</strong> Hover to compare individual vitamins across workouts.</p>
+  </div>
+
+  <iframe src="heart_rate_by_sleep_duration.html" width="100%" height="600px"></iframe>
+  <div class="insight-block">
+    <h3>🧠 Heart Rate by Sleep Duration</h3>
+    <p><strong>What it shows:</strong> Box plot comparing average heart rate across sleep bins.</p>
+    <p><strong>Key Takeaway:</strong> More sleep results in a stable and lower heart rate. Less sleep = higher spread.</p>
+    <p><strong>What happens on interaction:</strong> Hover to see individual user values and mood/workout info.</p>
+  </div>
+
+  <a href="index.html">⬅️ Back to Home</a>
 </body>
 </html>

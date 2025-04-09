@@ -7,22 +7,66 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
+      margin: 0;
+      padding: 40px 20px;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdz_CtLRE0nG8SwXemDErsRDyefNIrQn5JvA&s') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    h2, h3, p, ul {
+      text-align: center;
     }
 
     h2 {
-      color: #2c3e50;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 6px #000;
     }
 
-    a.download-btn {
+    h3 {
+      color: #ffe600;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      font-weight: 500;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .download-btn {
       display: inline-block;
-      padding: 10px 20px;
-      background-color: #3498db;
+      padding: 12px 25px;
+      background-color: #2ecc71;
       color: white;
-      border-radius: 5px;
+      border-radius: 6px;
       text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #27ae60;
+    }
+
+    .button-center {
+      text-align: center;
+      margin-top: 15px;
       margin-bottom: 30px;
     }
 
@@ -30,6 +74,10 @@
       border-collapse: collapse;
       width: 100%;
       margin-top: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     th, td {
@@ -47,25 +95,74 @@
     }
 
     .back {
-      display: inline-block;
-      margin-top: 30px;
+      display: block;
+      margin: 40px auto 0;
       font-size: 16px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      text-decoration: underline;
+    }
+
+    .dataset-preview {
+      margin-top: 50px;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dataset-preview h3 {
+      color: #fff;
+      text-align: left;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px #000;
     }
   </style>
 </head>
 <body>
 
-  <h2>📄 Fitness & Nutrition Dataset</h2>
+  <h2>📄 Fitness & Nutrition Dataset Overview</h2>
 
-  <a class="download-btn" href="fitness_nutrition.csv" download>⬇️ Download CSV</a>
+  <h3>📁 1. Fitness Dataset (`project1_fitness.csv`)</h3>
+  <p>This dataset captures daily physical activity, health metrics, and contextual mood data for users.</p>
+  <ul>
+    <li><strong>Key columns:</strong> steps, calories burned, active minutes, heart rate, sleep hours, workout type, mood, weather.</li>
+    <li><strong>Purpose:</strong> To track user fitness behavior and overall wellness patterns.</li>
+  </ul>
+  <div class="button-center">
+    <a class="download-btn" href="project1_fitness.csv" download>⬇️ Download Fitness Dataset</a>
+  </div>
 
-  <div id="table-container"></div>
+  <h3>🥗 2. Nutrition Dataset (`project2_nutrition.csv`)</h3>
+  <p>This dataset contains macro & micronutrient data for various food items.</p>
+  <ul>
+    <li><strong>Key columns:</strong> Carbohydrates, Protein, Fat, Sugar, Vitamins (C, B6, K), Minerals (Iron, Calcium), Cholesterol.</li>
+    <li><strong>Purpose:</strong> To analyze dietary intake and nutrient composition.</li>
+  </ul>
+  <div class="button-center">
+    <a class="download-btn" href="project2_nutrition.csv" download>⬇️ Download Nutrition Dataset</a>
+  </div>
+
+  <h3>🔗 3. Merged Dataset (`fitness_nutrition.csv`)</h3>
+  <p>This final cleaned dataset merges fitness activities with corresponding nutrition consumption for enriched analysis.</p>
+  <ul>
+    <li><strong>Key columns:</strong> All fitness and nutrition metrics aligned by user and date.</li>
+    <li><strong>Purpose:</strong> Enables deeper insights into how nutrition affects physical performance and mood.</li>
+  </ul>
+  <div class="button-center">
+    <a class="download-btn" href="fitness_nutrition.csv" download>⬇️ Download Merged Dataset</a>
+  </div>
+
+  <div class="dataset-preview">
+    <h3>📊 Preview: First 20 Rows of Merged Dataset</h3>
+    <div id="table-container"></div>
+  </div>
 
   <a class="back" href="index.html">⬅️ Back to Home</a>
 
   <script>
     d3.csv("fitness_nutrition.csv").then(data => {
-      const previewData = data.slice(0, 20); // First 20 rows
+      const previewData = data.slice(0, 20);
       const columns = Object.keys(previewData[0]);
 
       const table = d3.select("#table-container").append("table");

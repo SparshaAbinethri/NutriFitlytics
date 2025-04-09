@@ -1,47 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fitness & Nutrition Dashboard</title>
+  <meta charset="UTF-8" />
+  <title>NutriFitLytics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f6fa;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      color: #fff;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       text-align: center;
-      padding-top: 100px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #f4d03f;
     }
 
     h1 {
-      font-size: 40px;
-      color: #2c3e50;
-      margin-bottom: 50px;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 64px;
+      margin: 40px 0 10px;
+      color: #f4d03f;
+      text-shadow: 2px 2px 6px #000;
+      text-align: center;
+    }
+
+    .overview, .section {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #222;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 900px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .overview h2 {
+      color: #2ecc71;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .overview p, .section p {
+      font-family: 'Merriweather', serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 15px auto;
+      max-width: 800px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    ul li {
+      padding-left: 20px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
     }
 
     .button {
       display: inline-block;
-      padding: 20px 40px;
-      margin: 20px;
-      font-size: 20px;
-      text-decoration: none;
-      background-color: #3498db;
+      margin: 12px 5px;
+      padding: 14px 28px;
+      background-color: #2a9d8f;
       color: white;
-      border-radius: 10px;
-      transition: 0.3s ease;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
 
     .button:hover {
-      background-color: #2c80b4;
-      transform: scale(1.05);
+      background-color: #21867a;
+    }
+
+    .footer {
+      text-align: center;
+      margin: 40px 0;
+      font-size: 14px;
+      color: #eee;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 48px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .overview, .section {
+        margin: 15px;
+        padding: 20px;
+      }
+
+      .button {
+        width: 80%;
+      }
+
+      ul {
+        font-size: 15px;
+        padding-left: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>💪 Fitness & Nutrition Dashboard</h1>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#dataset">Dataset</a>
+    <a href="#powerbi">Power BI</a>
+    <a href="#plotly">Plotly</a>
+  </nav>
 
-  <a href="dataset.html" class="button">📄 View Dataset</a>
-  <a href="powerbi.html" class="button">📊 View Power BI Charts</a>
-  <a href="plotly.html" class="button">📈 View Plotly Visualizations</a>
+  <h1>🏋️‍♀️ NutriFitLytics</h1>
+
+  <div class="overview" id="overview">
+    <h2>Project Overview</h2>
+    <p>
+      <strong>NutriFitLytics</strong> is a powerful analytics-driven platform designed to bridge the gap between 
+      <strong>fitness activities</strong> and <strong>nutritional intake</strong>. It transforms raw, real-world health data into 
+      interactive and insightful visualizations to support a holistic understanding of personal wellness.
+    </p>
+    <p>
+      By combining key aspects of <strong>Nutrition + Fitness + Analytics = NutriFitLytics</strong>, this system empowers users to explore how 
+      food habits impact physical performance, energy levels, mood, and overall health.
+    </p>
+    <p>
+      Whether you're a fitness enthusiast, researcher, or health-conscious individual, this dashboard offers:
+    </p>
+    <ul>
+      <li>📊 Personalized insights linking workout types, calories burned, and active minutes with dietary intake.</li>
+      <li>🥦 Nutrient breakdowns showing macro and micronutrient consumption patterns.</li>
+      <li>💬 Mood analysis to understand emotional well-being in the context of fitness and nutrition.</li>
+      <li>🔗 Correlation analysis between various health factors using tools like Plotly, Power BI, and D3.js.</li>
+    </ul>
+    <p>
+      Explore personalized health trends, workout effectiveness, and nutrition balance through this engaging, interactive platform.
+    </p>
+  </div>
+
+  <div class="section" id="dataset">
+    <a href="dataset.html" class="button"><i class="fa-regular fa-file"></i> View Dataset</a>
+    <p>Explore and download the datasets used to analyze wellness patterns and correlations.</p>
+  </div>
+
+  <div class="section" id="powerbi">
+    <a href="powerbi.html" class="button"><i class="fa-solid fa-chart-column"></i> Power BI Visualizations</a>
+    <p>Visualize heart rate, calories burned, and sleep cycles using intuitive dashboards.</p>
+  </div>
+
+  <div class="section" id="plotly">
+    <a href="plotly.html" class="button"><i class="fa-solid fa-chart-line"></i> Plotly Interactive Charts</a>
+    <p>Explore interactive fitness and nutrition insights built using Plotly.</p>
+  </div>
+
+  <div class="footer">
+    © 2025 NutriFitLytics | Developed by Team 25
+  </div>
 
 </body>
 </html>
